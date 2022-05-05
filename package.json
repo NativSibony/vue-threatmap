@@ -1,6 +1,6 @@
 {
   "name": "vue-threatmap",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "",
   "main": "dist/threatmap.ssr.js",
   "browser": "dist/threatmap.esm.js",
