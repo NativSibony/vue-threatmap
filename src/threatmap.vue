@@ -1,9 +1,9 @@
 <template>
-  <div className="threatApp">
-    <div className="map" id="map-parent" style="position: 'relative'">
+  <div class="threatApp">
+    <div class="map" id="map-parent" style="position: 'relative'">
       <svg id="live-map"></svg>
     </div>
-    <div className="map-tooltip"></div>
+    <div class="map-tooltip"></div>
   </div>
 </template>
 
@@ -36,5 +36,24 @@ export default /*#__PURE__*/ {
 }
 .threatmap p {
   margin: 0 0 1em;
+}
+/* Threat Map ToolTip */
+.map-tooltip {
+  display: none;
+  background: #1e214262;
+  margin-left: 15px;
+  padding: 3px;
+  padding-bottom: 6px;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  color: #d6e5f8;
+  position: absolute;
+  width: auto;
+  border-style: solid;
+  border-width: 1.5px;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0.1rem, 0px 0px 0.2rem;
 }
 </style>

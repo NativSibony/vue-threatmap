@@ -1,5 +1,6 @@
 import * as d3 from "d3/build/d3";
 import * as pr from "d3-geo-projection";
+import { getNameFromCode } from "./util";
 import $ from "jquery";
 
 const ThreatMap = () => {
@@ -561,23 +562,9 @@ const ThreatMap = () => {
     let threatData;
     let indicator;
     try {
-      const d = await getResponse(url);
-      // .then((d) => {
-      // console.log("good");
-      // console.log(d);
-      // console.log(url);
-
-      threatData = parseData(d);
-      if (threatData[0].destination.code[0] === "b")
-        threatData = parseData(backUpData);
-      // console.log(threatData);
-      appCore(threatData, indicator);
-      // })
-    } catch (err) {
-      console.log(err.message || err);
       threatData = parseData(backUpData);
       appCore(threatData, indicator);
-    }
+    } catch (err) {}
   };
 
   const appCore = (threatData, indicator) => {
@@ -869,10 +856,17 @@ const ThreatMap = () => {
 
   // Load external data and boot
   const loader = d3.queue();
-  loader.defer(d3.json, "https://unpkg.com/world-atlas@1/world/110m.json");
-  loader.defer(d3.csv, "https://file.io/jszYavw3V2w2", (d) => {
-    data.set(d.code, +d.total);
-  });
+  loader.defer(
+    d3.json,
+    "https://raw.githubusercontent.com/NativSibony/vue-threatmap/main/static/world.json"
+  );
+  loader.defer(
+    d3.csv,
+    "https://raw.githubusercontent.com/NativSibony/vue-threatmap/main/static/world_population.csv",
+    (d) => {
+      data.set(d.code, +d.total);
+    }
+  );
   loader.await(ready); //Async
 };
 
