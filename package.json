@@ -68,6 +68,7 @@
     "threat analysis",
     "link analysis"
   ],
+  "license": "MIT",
   "author": "Nativ Sibony",
   "bugs": {
     "url": "https://github.com/NativSibony/vue-threatmap/issues"
