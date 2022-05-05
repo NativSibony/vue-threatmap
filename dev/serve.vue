@@ -1,7 +1,7 @@
 <script>
 import Vue from "vue";
 import Threatmap from "@/threatmap.vue";
-
+// import Threatmap from "vue-threatmap";
 export default Vue.extend({
   name: "ServeDev",
   components: {
