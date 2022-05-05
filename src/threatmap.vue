@@ -1,10 +1,14 @@
 <template>
-  <div class="threatmap">
-    {{ counter }}
+  <div className="threatApp">
+    <div className="map" id="map-parent" style="position: 'relative'">
+      <svg id="live-map"></svg>
+    </div>
+    <div className="map-tooltip"></div>
   </div>
 </template>
 
 <script>
+import ThreatMap from "./threatmap";
 export default /*#__PURE__*/ {
   name: "Threatmap", // vue component name
   data() {
@@ -14,7 +18,9 @@ export default /*#__PURE__*/ {
     };
   },
   props: {},
-  created: {},
+  mounted() {
+    ThreatMap();
+  },
 };
 </script>
 
